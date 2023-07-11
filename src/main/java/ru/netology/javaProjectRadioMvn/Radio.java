@@ -2,8 +2,28 @@
 package ru.netology.javaProjectRadioMvn;
 
 public class Radio {
+
+
+
+
+    private int maxStation = 10;
     private int currentStation;
-    private int currentVolume;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
+
+
+
+
+    public Radio() {
+        maxStation = 10;
+        this.maxStation = maxStation;
+    }
+
+    public Radio(int countStation) {
+
+        this.maxStation = countStation - 1;
+    }
 
 
     public void next() {
@@ -13,8 +33,6 @@ public class Radio {
         }
         currentStation = 0;
     }
-
-
 
 
     public void prev() {
@@ -47,18 +65,25 @@ public class Radio {
         return currentVolume;
     }
 
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+    public int getMinVolume() {
+        return minVolume;
+    }
+
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume >  maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume <  100) {
             currentVolume = currentVolume + 1;
             return;
         }
@@ -71,7 +96,7 @@ public class Radio {
         if (currentVolume != 0) {
             currentVolume--;
         } else {
-            currentVolume = 10;
+            currentVolume = 100;
         }
 
 

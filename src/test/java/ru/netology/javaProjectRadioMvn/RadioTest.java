@@ -5,6 +5,24 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+    @Test
+    public void testRadioVolume() {
+        Radio volume = new Radio( 100);
+        Assertions.assertEquals(0,volume.getMinVolume());
+        Assertions.assertEquals(100, volume.getMaxVolume());
+
+    }
+
+    @Test
+    public void testRadioStation() {
+    Radio station = new Radio(20);
+
+    station.setCurrentStation(15);
+
+    int expected = 0;
+    int actual = station.getCurrentStation();
+    Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void testStation() {
@@ -115,7 +133,7 @@ public class RadioTest {
     public void testMaximumSound() {
         Radio volume = new Radio();
 
-        volume.setCurrentVolume(11);
+        volume.setCurrentVolume(101);
 
         int expected = 0;
         int actual = volume.getCurrentVolume();
@@ -125,11 +143,11 @@ public class RadioTest {
     @Test
     public void testLouderSound() {
         Radio volume = new Radio();
-        volume.setCurrentVolume(4);
+        volume.setCurrentVolume(54);
 
         volume.increaseVolume();
 
-        int expected = 5;
+        int expected = 55;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -138,23 +156,23 @@ public class RadioTest {
     @Test
     public void testMuteSound() {
         Radio volume = new Radio();
-        volume.setCurrentVolume(10);
+        volume.setCurrentVolume(100);
 
         volume.increaseVolume();
 
         int expected = 0;
         int actual = volume.getCurrentVolume();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testHushTheSound() {
         Radio volume = new Radio();
-        volume.setCurrentVolume(10);
+        volume.setCurrentVolume(100);
 
         volume.hushTheSound();
 
-        int expected = 9;
+        int expected = 99;
         int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -167,8 +185,8 @@ public class RadioTest {
 
         volume.hushTheSound();
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getCurrentVolume();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
