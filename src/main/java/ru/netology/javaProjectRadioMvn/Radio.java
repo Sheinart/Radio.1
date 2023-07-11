@@ -20,8 +20,9 @@ public class Radio {
         this.maxStation = maxStation;
     }
 
-    public Radio(int currentStation) {
-        this.maxStation = currentStation - 1;
+    public Radio(int countStation) {
+
+        this.maxStation = countStation - 1;
     }
 
 
